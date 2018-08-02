@@ -75,3 +75,6 @@ happens-before原则
 ③volatile变量规则：对一个变量的写操作先行发生于后面对这个变量的读操作（也就是说一个线程写操作，一个线程读操作，肯定先写后读这样一个顺序）
 ④传递规则：如果操作A先行发生于操作B，而操作B又先行发生于操作C，则操作A先行发生于操作C
 后面还有四个原则，不一一列举了
+
+
+  安全发布对象-可参考concurrencyday1-java/com/example/concurrencyday1-example-singleton-SingletonExample4  代码中注释的详解
