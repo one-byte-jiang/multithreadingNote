@@ -78,3 +78,16 @@ happens-before原则
 
 
   安全发布对象-可参考concurrencyday1-java/com/example/concurrencyday1-example-singleton-SingletonExample4  代码中注释的详解
+
+
+
+ThreadLock：就是把共享变量复制一份到每个线程的本地变量，每个线程操作本地变量互不影响！
+ThreadLock：原理其实就通过当前线程作为Map区分的key值
+
+
+StringBuilder是线程不安全的类，StringBuffer是线程安全的类：因为StringBuffer的所有方法加了synchronized关键字的、
+
+
+SimpleDateFormat高并发下，如果用作共享变量是线程不安全的
+
+HashMap、ArrayList、HashSet都是线程不安全的！
