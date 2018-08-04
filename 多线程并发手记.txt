@@ -91,3 +91,12 @@ StringBuilder是线程不安全的类，StringBuffer是线程安全的类：因�
 SimpleDateFormat高并发下，如果用作共享变量是线程不安全的
 
 HashMap、ArrayList、HashSet都是线程不安全的！
+
+对于一些集合，例如：Vector、ArrayList等增强for循环、迭代器遍历时进行删除或者添加元素会抛出异常，如果要删除的操作，遍历的时候做好标记，结束之后再去删除
+
+
+====线程安全-并发容器J.U.C=====
+CopyOnWriteArrayList：优点，读写是分离的，写的花会单独开辟新的数组上，也会保证最终一致性。缺点：如果频繁的添加，会导致内存占用开销
+注意：add、remove操作是线程安全的，但是removeAll，addAll是线程不安全的。
+
+ConcurrentHashMap与ConcurrentSkipListMap的区别：都是线程安全的。ConcurrentSkipListMap是有序的。而且并发越高ConcurrentSkipListMap优势越大
