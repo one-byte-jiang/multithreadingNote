@@ -100,3 +100,23 @@ CopyOnWriteArrayList：优点，读写是分离的，写的花会单独开辟新
 注意：add、remove操作是线程安全的，但是removeAll，addAll是线程不安全的。
 
 ConcurrentHashMap与ConcurrentSkipListMap的区别：都是线程安全的。ConcurrentSkipListMap是有序的。而且并发越高ConcurrentSkipListMap优势越大
+java7中ConcurrentHashMap使用的是分段锁。java8中ConcurrentHashMap取消了分段锁，而是放在一个数组里用红黑树算法寻址
+
+
+ReentrantLock、ReentrantReadWriteLock(写锁前,必须所有读锁执行完)、StampedLock(使用悲观锁与乐观锁)
+如果出现死锁：解决方案。可以使用ReentrantLock、加上锁定时间。超过获取锁的时间，直接中止。
+最小化锁的作用域范围：S=1/(1-a+a/n);阿姆达尔定律;例如：串型代码占总体的25%，那边并行处理的总体性能不可能超过4；
+如果你有5%的代码在锁中，你的应用不可能提高超过20倍
+
+BlockingQueue队列：实现有：
+ArrayBlockingQueue：初始化大小创建时就会被指定。先进先出的方式存储数据
+LinkedBlockingQueue：初始化可选大小。如果不指定大小。默认整形的最大值。先进先出的方式存储数据
+SynchronousQueue:只能放入一个队列，有一个元素就会阻塞，直到这个元素移除
+
+
+ThreadPoolExecutor线程池：
+execute():提交任务,交给线程池执行
+submit():提交任务,能够返回执行结果 相当于 execute+Future
+shutdown():关闭线程池,等待任务都执行完
+shutdownNow():关闭线程池,不等待任务执行完
+
